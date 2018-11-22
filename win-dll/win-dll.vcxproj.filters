@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\log4cpp">
+      <UniqueIdentifier>{6c338ff6-227f-4059-b73a-d17533a7c87a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\log4cpp\threading">
+      <UniqueIdentifier>{4765b00d-c59a-419b-85c0-08076fae266d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inc">
+      <UniqueIdentifier>{63e7cf12-1d00-498f-9ad8-9e6459e07034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\xl">
+      <UniqueIdentifier>{5b18a36a-1ddd-42e1-b0c1-10748538e66e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\BoostThreads.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\DummyThreads.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\MSThreads.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\OmniThreads.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\PThreads.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\threading\Threading.hh">
+      <Filter>头文件\log4cpp\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\AbortAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Appender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\AppendersFactory.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\AppenderSkeleton.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\BasicConfigurator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\BasicLayout.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\BufferingAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Category.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\CategoryStream.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\config-MinGW32.h">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\config-openvms.h">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Configurator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\config-win32.h">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\config-win32-stlport-boost.h">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\convenience.h">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\DailyRollingFileAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Export.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\FactoryParams.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\FileAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Filter.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\FixedContextCategory.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\HierarchyMaintainer.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\IdsaAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Layout.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\LayoutAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\LayoutsFactory.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\LevelEvaluator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\LoggingEvent.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Manipulator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\NDC.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\NTEventLogAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\OstreamAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\PassThroughLayout.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\PatternLayout.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Portability.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Priority.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\PropertyConfigurator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\RemoteSyslogAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\RollingFileAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\SimpleConfigurator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\SimpleLayout.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\SmtpAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\StringQueueAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\SyslogAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\TimeStamp.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\TriggeringEventEvaluator.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\TriggeringEventEvaluatorFactory.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="log4cpp\Win32DebugAppender.hh">
+      <Filter>头文件\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\enum.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\IBookT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\IFontT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\IFormatT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\ISheetT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\libxl.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\setup.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\baseDll.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ExcelUtil.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\FileUtil.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\log.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ScanCode.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\serial.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sqlite3.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SqliteUtil.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\strUtil.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\udp.h">
+      <Filter>头文件\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="win-dll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="serial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SqliteUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="udp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanCode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcelUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

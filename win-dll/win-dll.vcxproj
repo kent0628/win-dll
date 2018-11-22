@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{3121215F-4E49-4B67-8C68-813D0754D439}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>windll</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;WINDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;WINDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;WINDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WINDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\baseDll.h" />
+    <ClInclude Include="inc\ExcelUtil.h" />
+    <ClInclude Include="inc\FileUtil.h" />
+    <ClInclude Include="inc\log.h" />
+    <ClInclude Include="inc\ScanCode.h" />
+    <ClInclude Include="inc\serial.h" />
+    <ClInclude Include="inc\sqlite3.h" />
+    <ClInclude Include="inc\SqliteUtil.h" />
+    <ClInclude Include="inc\strUtil.h" />
+    <ClInclude Include="inc\udp.h" />
+    <ClInclude Include="log4cpp\AbortAppender.hh" />
+    <ClInclude Include="log4cpp\Appender.hh" />
+    <ClInclude Include="log4cpp\AppendersFactory.hh" />
+    <ClInclude Include="log4cpp\AppenderSkeleton.hh" />
+    <ClInclude Include="log4cpp\BasicConfigurator.hh" />
+    <ClInclude Include="log4cpp\BasicLayout.hh" />
+    <ClInclude Include="log4cpp\BufferingAppender.hh" />
+    <ClInclude Include="log4cpp\Category.hh" />
+    <ClInclude Include="log4cpp\CategoryStream.hh" />
+    <ClInclude Include="log4cpp\config-MinGW32.h" />
+    <ClInclude Include="log4cpp\config-openvms.h" />
+    <ClInclude Include="log4cpp\config-win32-stlport-boost.h" />
+    <ClInclude Include="log4cpp\config-win32.h" />
+    <ClInclude Include="log4cpp\Configurator.hh" />
+    <ClInclude Include="log4cpp\convenience.h" />
+    <ClInclude Include="log4cpp\DailyRollingFileAppender.hh" />
+    <ClInclude Include="log4cpp\Export.hh" />
+    <ClInclude Include="log4cpp\FactoryParams.hh" />
+    <ClInclude Include="log4cpp\FileAppender.hh" />
+    <ClInclude Include="log4cpp\Filter.hh" />
+    <ClInclude Include="log4cpp\FixedContextCategory.hh" />
+    <ClInclude Include="log4cpp\HierarchyMaintainer.hh" />
+    <ClInclude Include="log4cpp\IdsaAppender.hh" />
+    <ClInclude Include="log4cpp\Layout.hh" />
+    <ClInclude Include="log4cpp\LayoutAppender.hh" />
+    <ClInclude Include="log4cpp\LayoutsFactory.hh" />
+    <ClInclude Include="log4cpp\LevelEvaluator.hh" />
+    <ClInclude Include="log4cpp\LoggingEvent.hh" />
+    <ClInclude Include="log4cpp\Manipulator.hh" />
+    <ClInclude Include="log4cpp\NDC.hh" />
+    <ClInclude Include="log4cpp\NTEventLogAppender.hh" />
+    <ClInclude Include="log4cpp\OstreamAppender.hh" />
+    <ClInclude Include="log4cpp\PassThroughLayout.hh" />
+    <ClInclude Include="log4cpp\PatternLayout.hh" />
+    <ClInclude Include="log4cpp\Portability.hh" />
+    <ClInclude Include="log4cpp\Priority.hh" />
+    <ClInclude Include="log4cpp\PropertyConfigurator.hh" />
+    <ClInclude Include="log4cpp\RemoteSyslogAppender.hh" />
+    <ClInclude Include="log4cpp\RollingFileAppender.hh" />
+    <ClInclude Include="log4cpp\SimpleConfigurator.hh" />
+    <ClInclude Include="log4cpp\SimpleLayout.hh" />
+    <ClInclude Include="log4cpp\SmtpAppender.hh" />
+    <ClInclude Include="log4cpp\StringQueueAppender.hh" />
+    <ClInclude Include="log4cpp\SyslogAppender.hh" />
+    <ClInclude Include="log4cpp\threading\BoostThreads.hh" />
+    <ClInclude Include="log4cpp\threading\DummyThreads.hh" />
+    <ClInclude Include="log4cpp\threading\MSThreads.hh" />
+    <ClInclude Include="log4cpp\threading\OmniThreads.hh" />
+    <ClInclude Include="log4cpp\threading\PThreads.hh" />
+    <ClInclude Include="log4cpp\threading\Threading.hh" />
+    <ClInclude Include="log4cpp\TimeStamp.hh" />
+    <ClInclude Include="log4cpp\TriggeringEventEvaluator.hh" />
+    <ClInclude Include="log4cpp\TriggeringEventEvaluatorFactory.hh" />
+    <ClInclude Include="log4cpp\Win32DebugAppender.hh" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="xl\enum.h" />
+    <ClInclude Include="xl\IBookT.h" />
+    <ClInclude Include="xl\IFontT.h" />
+    <ClInclude Include="xl\IFormatT.h" />
+    <ClInclude Include="xl\ISheetT.h" />
+    <ClInclude Include="xl\libxl.h" />
+    <ClInclude Include="xl\setup.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="ExcelUtil.cpp" />
+    <ClCompile Include="FileUtil.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="ScanCode.cpp" />
+    <ClCompile Include="serial.cpp" />
+    <ClCompile Include="sqlite3.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SqliteUtil.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="strUtil.cpp" />
+    <ClCompile Include="udp.cpp" />
+    <ClCompile Include="win-dll.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
