@@ -122,6 +122,17 @@ int Serial::read(char *buffer, DWORD dwLength, DWORD timeout)
 	return ret;
 }
 
+int Serial::readline(char * buffer, DWORD dwLength, DWORD timeout)
+{
+	int ret;
+
+	ret = readline((unsigned char *)buffer, dwLength - 1, timeout);
+	if (ret >= 0) {
+		buffer[ret] = '\0';
+	}
+	return ret;
+}
+
 int Serial::read(unsigned char *buffer, DWORD dwLength, DWORD timeout)
 {
 	int ret = 0;
@@ -137,6 +148,25 @@ int Serial::read(unsigned char *buffer, DWORD dwLength, DWORD timeout)
 			if (len >= dwLength) {
 				break;
 			}
+		}
+		t2 = GetTickCount();
+	}
+	return len;
+}
+
+int Serial::readline(unsigned char * buffer, DWORD dwLength, DWORD timeout)
+{
+	int ret = 0;
+	DWORD len = 0;
+	DWORD t1, t2;
+
+	t2 = t1 = GetTickCount();
+	while (t2 - t1 <= timeout) {
+		ret = read((void *)(buffer + len), dwLength - len);
+		if (ret != -1) {
+			len += ret;
+			ret = 0;
+			break;
 		}
 		t2 = GetTickCount();
 	}

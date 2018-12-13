@@ -36,7 +36,9 @@ public:
 	int write(unsigned char *data, DWORD dwLegnth);								// 发送数据
 	int write(void *data, DWORD dwLegnth);										// 发送数据
 	int read(char *buffer, DWORD dwLength, DWORD timeout = 0);					// 读取数据
+	int readline(char *buffer, DWORD dwLength, DWORD timeout = 0);				// 读取数据
 	int read(unsigned char *buffer, DWORD dwLength, DWORD timeout = 0);			// 读取数据
+	int readline(unsigned char *buffer, DWORD dwLength, DWORD timeout = 0);		// 读取数据
 	int read(void *buffer, DWORD dwLength);										// 读取数据
 
 	// 设置串口号
