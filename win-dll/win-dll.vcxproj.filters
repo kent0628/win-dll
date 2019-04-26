@@ -246,6 +246,12 @@
     <ClInclude Include="inc\udp.h">
       <Filter>头文件\inc</Filter>
     </ClInclude>
+    <ClInclude Include="xl\IAutoFilterT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
+    <ClInclude Include="xl\IFilterColumnT.h">
+      <Filter>头文件\xl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

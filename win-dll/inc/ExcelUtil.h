@@ -33,6 +33,8 @@ public:
 	void writeCell(int row, int col, long long num, libxl::Format *format);
 
 	void makeField(std::vector<ExcelField> fileds);
+
+	void setPwd(const char *password);
 };
 
 class DLL_API MakeExcel {

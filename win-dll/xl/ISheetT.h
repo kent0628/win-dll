@@ -8,6 +8,7 @@ namespace libxl
 {
 
     template<class TCHAR> struct IFormatT;
+    template<class TCHAR> struct IAutoFilterT;
 
     template<class TCHAR>
     struct ISheetT
@@ -19,25 +20,32 @@ namespace libxl
         virtual             void XLAPIENTRY setCellFormat(int row, int col, IFormatT<TCHAR>* format) = 0;
 
         virtual     const TCHAR* XLAPIENTRY readStr(int row, int col, IFormatT<TCHAR>** format = 0) = 0;
-        virtual             bool XLAPIENTRY writeStr(int row, int col, const TCHAR* value, IFormatT<TCHAR>* format = 0) = 0;
+        virtual             bool XLAPIENTRY writeStr(int row, int col, const TCHAR* value, IFormatT<TCHAR>* format = 0, CellType type = CELLTYPE_STRING) = 0;
 
         virtual           double XLAPIENTRY readNum(int row, int col, IFormatT<TCHAR>** format = 0) const = 0;
         virtual             bool XLAPIENTRY writeNum(int row, int col, double value, IFormatT<TCHAR>* format = 0) = 0;
 
         virtual             bool XLAPIENTRY readBool(int row, int col, IFormatT<TCHAR>** format = 0) const = 0;
-        virtual             bool XLAPIENTRY writeBool(int row, int col, bool value, IFormatT<TCHAR>* format = 0) = 0;
+        virtual             bool XLAPIENTRY writeBool(int row, int col, bool value, IFormatT<TCHAR>* format = 0, int errCode = ERRORTYPE_NOERROR) = 0;
 
         virtual             bool XLAPIENTRY readBlank(int row, int col, IFormatT<TCHAR>** format) const = 0;
         virtual             bool XLAPIENTRY writeBlank(int row, int col, IFormatT<TCHAR>* format) = 0;
 
         virtual     const TCHAR* XLAPIENTRY readFormula(int row, int col, IFormatT<TCHAR>** format = 0) = 0;
-        virtual             bool XLAPIENTRY writeFormula(int row, int col, const TCHAR* value, IFormatT<TCHAR>* format = 0) = 0;
+        virtual             bool XLAPIENTRY writeFormula(int row, int col, const TCHAR* expr, IFormatT<TCHAR>* format = 0) = 0;
+
+        virtual             bool XLAPIENTRY writeFormulaNum(int row, int col, const TCHAR* expr, double value, IFormatT<TCHAR>* format = 0) = 0;
+        virtual             bool XLAPIENTRY writeFormulaStr(int row, int col, const TCHAR* expr, const TCHAR* value, IFormatT<TCHAR>* format = 0) = 0;
+        virtual             bool XLAPIENTRY writeFormulaBool(int row, int col, const TCHAR* expr, bool value, IFormatT<TCHAR>* format = 0) = 0;
 
         virtual     const TCHAR* XLAPIENTRY readComment(int row, int col) const = 0;
         virtual             void XLAPIENTRY writeComment(int row, int col, const TCHAR* value, const TCHAR* author = 0, int width = 129, int height = 75) = 0;
+        virtual             void XLAPIENTRY removeComment(int row, int col) = 0;
 
         virtual             bool XLAPIENTRY isDate(int row, int col) const = 0;
+
         virtual        ErrorType XLAPIENTRY readError(int row, int col) const = 0;
+        virtual             void XLAPIENTRY writeError(int row, int col, ErrorType error, IFormatT<TCHAR>* format = 0) = 0;
 
         virtual           double XLAPIENTRY colWidth(int col) const = 0;
         virtual           double XLAPIENTRY rowHeight(int row) const = 0;
@@ -61,7 +69,7 @@ namespace libxl
 
         virtual              int XLAPIENTRY pictureSize() const = 0;
         virtual              int XLAPIENTRY getPicture(int index, int* rowTop = 0, int* colLeft = 0, int* rowBottom = 0, int* colRight = 0,
-                                                                  int* width = 0, int* height = 0, int* offset_x = 0, int* offset_y = 0) const = 0;
+                                                                  int* width = 0, int* height = 0, int* offset_x = 0, int* offset_y = 0, const TCHAR** linkPath = 0) const = 0;
 
         virtual             void XLAPIENTRY setPicture(int row, int col, int pictureId, double scale = 1.0, int offset_x = 0, int offset_y = 0, Position pos = POSITION_MOVE_AND_SIZE) = 0;
         virtual             void XLAPIENTRY setPicture2(int row, int col, int pictureId, int width = -1, int height = -1, int offset_x = 0, int offset_y = 0, Position pos = POSITION_MOVE_AND_SIZE) = 0;
@@ -164,22 +172,29 @@ namespace libxl
         virtual             void XLAPIENTRY clearPrintArea() = 0;
 
         virtual             bool XLAPIENTRY getNamedRange(const TCHAR* name, int* rowFirst, int* rowLast, int* colFirst, int* colLast, int scopeId = SCOPE_UNDEFINED, bool* hidden = 0) = 0;
-        virtual             bool XLAPIENTRY setNamedRange(const TCHAR* name, int rowFirst, int rowLast, int colFirst, int colLast, int scopeId = SCOPE_UNDEFINED) = 0;
+        virtual             bool XLAPIENTRY setNamedRange(const TCHAR* name, int rowFirst, int rowLast, int colFirst, int colLast, int scopeId = SCOPE_UNDEFINED, bool hidden = false) = 0;
         virtual             bool XLAPIENTRY delNamedRange(const TCHAR* name, int scopeId = SCOPE_UNDEFINED) = 0;
 
         virtual              int XLAPIENTRY namedRangeSize() const = 0;
         virtual     const TCHAR* XLAPIENTRY namedRange(int index, int* rowFirst, int* rowLast, int* colFirst, int* colLast, int* scopeId = 0, bool* hidden = 0) = 0;
+
+        virtual              int XLAPIENTRY tableSize() const = 0;
+        virtual     const TCHAR* XLAPIENTRY table(int index, int* rowFirst, int* rowLast, int* colFirst, int* colLast, int* headerRowCount, int* totalsRowCount) = 0;
 
         virtual              int XLAPIENTRY hyperlinkSize() const = 0;
         virtual     const TCHAR* XLAPIENTRY hyperlink(int index, int* rowFirst, int* rowLast, int* colFirst, int* colLast) = 0;
         virtual             bool XLAPIENTRY delHyperlink(int index) = 0;
         virtual             void XLAPIENTRY addHyperlink(const TCHAR* hyperlink, int rowFirst, int rowLast, int colFirst, int colLast) = 0;
 
+        virtual IAutoFilterT<TCHAR>* XLAPIENTRY autoFilter() = 0;
+        virtual             void XLAPIENTRY applyFilter() = 0;
+        virtual             void XLAPIENTRY removeFilter() = 0;
+
         virtual     const TCHAR* XLAPIENTRY name() const = 0;
         virtual             void XLAPIENTRY setName(const TCHAR* name) = 0;
 
         virtual             bool XLAPIENTRY protect() const = 0;
-        virtual             void XLAPIENTRY setProtect(bool protect = true) = 0;
+        virtual             void XLAPIENTRY setProtect(bool protect = true, const TCHAR* password = 0, EnhancedProtection prot = PROT_DEFAULT) = 0;
 
         virtual             SheetState XLAPIENTRY hidden() const = 0;
         virtual             bool XLAPIENTRY setHidden(SheetState state = SHEETSTATE_HIDDEN) = 0;
@@ -194,6 +209,21 @@ namespace libxl
 
         virtual             void XLAPIENTRY addrToRowCol(const TCHAR* addr, int* row, int* col, bool* rowRelative = 0, bool* colRelative = 0) = 0;
         virtual     const TCHAR* XLAPIENTRY rowColToAddr(int row, int col, bool rowRelative = true, bool colRelative = true) = 0;
+
+        virtual             void XLAPIENTRY setTabColor(Color color) = 0;
+        virtual             void XLAPIENTRY setTabColor(int red, int green, int blue) = 0;
+
+        virtual             bool XLAPIENTRY addIgnoredError(int rowFirst, int colFirst, int rowLast, int colLast, IgnoredError iError) = 0;
+
+        virtual             void XLAPIENTRY addDataValidation(DataValidationType type, DataValidationOperator op, int rowFirst, int rowLast, int colFirst, int colLast, const TCHAR* value1, const TCHAR* value2 = 0,
+                                                              bool allowBlank = true, bool hideDropDown = false, bool showInputMessage = true, bool showErrorMessage = true, const TCHAR* promptTitle = 0, const TCHAR* prompt = 0,
+                                                              const TCHAR* errorTitle = 0, const TCHAR* error = 0, DataValidationErrorStyle errorStyle = VALIDATION_ERRSTYLE_STOP) = 0;
+
+        virtual             void XLAPIENTRY addDataValidationDouble(DataValidationType type, DataValidationOperator op, int rowFirst, int rowLast, int colFirst, int colLast, double value1, double value2,
+                                                              bool allowBlank = true, bool hideDropDown = false, bool showInputMessage = true, bool showErrorMessage = true, const TCHAR* promptTitle = 0, const TCHAR* prompt = 0,
+                                                              const TCHAR* errorTitle = 0, const TCHAR* error = 0, DataValidationErrorStyle errorStyle = VALIDATION_ERRSTYLE_STOP) = 0;
+
+        virtual             void XLAPIENTRY removeDataValidations() = 0;
 
         virtual                             ~ISheetT() {}
     };

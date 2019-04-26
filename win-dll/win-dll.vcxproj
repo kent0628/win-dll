@@ -23,7 +23,7 @@
     <ProjectGuid>{3121215F-4E49-4B67-8C68-813D0754D439}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>windll</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -219,7 +219,9 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="xl\enum.h" />
+    <ClInclude Include="xl\IAutoFilterT.h" />
     <ClInclude Include="xl\IBookT.h" />
+    <ClInclude Include="xl\IFilterColumnT.h" />
     <ClInclude Include="xl\IFontT.h" />
     <ClInclude Include="xl\IFormatT.h" />
     <ClInclude Include="xl\ISheetT.h" />

@@ -14,16 +14,23 @@ namespace libxl {
     template<class TCHAR>
     struct IBookT
     {
-        virtual             bool XLAPIENTRY load(const TCHAR* filename) = 0;
-        virtual             bool XLAPIENTRY save(const TCHAR* filename) = 0;
+        virtual             bool XLAPIENTRY load(const TCHAR* filename, const TCHAR* tempFile = 0) = 0;
+        virtual             bool XLAPIENTRY loadSheet(const TCHAR* filename, int sheetIndex, const TCHAR* tempFile = 0) = 0;
+        virtual             bool XLAPIENTRY loadPartially(const TCHAR* filename, int sheetIndex, int firstRow, int lastRow, const TCHAR* tempFile = 0) = 0;
+        virtual             bool XLAPIENTRY loadWithoutEmptyCells(const TCHAR* filename) = 0;
+        virtual             bool XLAPIENTRY loadInfo(const TCHAR* filename) = 0;
 
-        virtual             bool XLAPIENTRY loadRaw(const char* data, unsigned size) = 0;
+        virtual             bool XLAPIENTRY save(const TCHAR* filename, bool useTempFile = false) = 0;
+
+        virtual             bool XLAPIENTRY loadRaw(const char* data, unsigned size, int sheetIndex = -1, int firstRow = -1, int lastRow = -1) = 0;
         virtual             bool XLAPIENTRY saveRaw(const char** data, unsigned* size) = 0;
 
         virtual  ISheetT<TCHAR>* XLAPIENTRY addSheet(const TCHAR* name, ISheetT<TCHAR>* initSheet = 0) = 0;
         virtual  ISheetT<TCHAR>* XLAPIENTRY insertSheet(int index, const TCHAR* name, ISheetT<TCHAR>* initSheet = 0) = 0;
         virtual  ISheetT<TCHAR>* XLAPIENTRY getSheet(int index) const = 0;
+        virtual     const TCHAR* XLAPIENTRY getSheetName(int index) const = 0;
         virtual        SheetType XLAPIENTRY sheetType(int index) const = 0;
+        virtual             bool XLAPIENTRY moveSheet(int srcIndex, int dstIndex) = 0;
         virtual             bool XLAPIENTRY delSheet(int index) = 0;
         virtual              int XLAPIENTRY sheetCount() const = 0;
 
@@ -52,6 +59,7 @@ namespace libxl {
 
         virtual              int XLAPIENTRY addPicture(const TCHAR* filename) = 0;
         virtual              int XLAPIENTRY addPicture2(const char* data, unsigned size) = 0;
+        virtual              int XLAPIENTRY addPictureAsLink(const TCHAR* filename, bool insert = false) = 0;
 
         virtual     const TCHAR* XLAPIENTRY defaultFont(int* fontSize) = 0;
         virtual             void XLAPIENTRY setDefaultFont(const TCHAR* fontName, int fontSize) = 0;

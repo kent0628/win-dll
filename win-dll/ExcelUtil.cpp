@@ -7,6 +7,7 @@
 MakeExcel::MakeExcel()
 {
 	book = xlCreateBook();
+	book->setKey(StrUtil::char2wchar("TommoT"), StrUtil::char2wchar("windows-2421220b07c2e10a6eb96768a2p7r6gc"));
 }
 
 MakeExcel::~MakeExcel()
@@ -81,4 +82,9 @@ void MakeSheet::makeField(std::vector<ExcelField> fileds)
 	for (std::vector<ExcelField>::iterator iter = fileds.begin(); iter != fileds.end(); iter++, i++) {
 		writeCell(0, i, iter->name);
 	}
+}
+
+void MakeSheet::setPwd(const char * password)
+{
+	sheet->setProtect(true, StrUtil::char2wchar(password), libxl::PROT_ALL);
 }
