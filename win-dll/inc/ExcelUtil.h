@@ -34,6 +34,8 @@ public:
 
 	void makeField(std::vector<ExcelField> fileds);
 
+	void setAutoFitArea(int rowFirst = 0, int colFirst = 0, int rowLast = -1, int colLast = -1);
+
 	void setPwd(const char *password);
 };
 

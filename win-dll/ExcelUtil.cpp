@@ -84,7 +84,12 @@ void MakeSheet::makeField(std::vector<ExcelField> fileds)
 	}
 }
 
+void MakeSheet::setAutoFitArea(int rowFirst, int colFirst, int rowLast, int colLast)
+{
+	sheet->setAutoFitArea(rowFirst, colFirst, rowLast, colLast);
+}
+
 void MakeSheet::setPwd(const char * password)
 {
-	sheet->setProtect(true, StrUtil::char2wchar(password), libxl::PROT_ALL);
+	sheet->setProtect(true, StrUtil::char2wchar(password), libxl::PROT_DEFAULT);
 }
